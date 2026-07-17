@@ -1,0 +1,21 @@
+# Core
+pandas>=2.2.0
+numpy>=1.26.0
+
+# API & WebSocket
+aiohttp>=3.9.0
+websockets>=12.0
+
+# Bot Telegram
+python-telegram-bot>=20.7
+
+# Web
+flask>=3.0.0
+
+# Utils
+python-dotenv>=1.0.0
+setuptools>=68.0
+wheel
+
+# Optionnel mais recommandé pour Render
+#gunicorn>=21.0
