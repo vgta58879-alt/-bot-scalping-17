@@ -14,6 +14,7 @@ RÉPARTITION DANS L'HEURE:
 - Slot 3: 40:00 - 60:00 UTC
 Le bot envoie un signal dès qu'un bon setup est détecté dans son slot.
 """
+import os
 import asyncio
 from datetime import datetime, timezone, timedelta
 from time_utils import now_utc, get_current_hour_utc, get_current_minute_utc, format_utc_full
@@ -25,8 +26,8 @@ class SignalScheduler:
     """Garantit exactement 3 signaux par heure UTC."""
 
     def __init__(self):
-        os.makedirs(config.DATA_DIR, exist_ok=True)
         self.state_file = f"{config.DATA_DIR}/signal_scheduler.json"
+        os.makedirs(config.DATA_DIR, exist_ok=True)
         self.state = load_json(self.state_file, {
             "current_hour_utc": get_current_hour_utc(),
             "signals_sent_this_hour": 0,
