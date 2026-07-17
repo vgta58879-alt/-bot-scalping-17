@@ -6,6 +6,9 @@ from config import config
 # Import des fonctions UTC strictes
 from time_utils import now_utc, format_utc_full, parse_utc, utc_timestamp
 
+# ═══ CRÉER LE DOSSIER DATA AU DÉMARRAGE (évite FileNotFoundError sur Render) ═══
+os.makedirs(config.DATA_DIR, exist_ok=True)
+
 # Logger
 logging.basicConfig(
     level=logging.INFO,
