@@ -26,8 +26,8 @@ class SignalScheduler:
     """Garantit exactement 3 signaux par heure UTC."""
 
     def __init__(self):
-        self.state_file = f"{config.DATA_DIR}/signal_scheduler.json"
         os.makedirs(config.DATA_DIR, exist_ok=True)
+        self.state_file = f"{config.DATA_DIR}/signal_scheduler.json"
         self.state = load_json(self.state_file, {
             "current_hour_utc": get_current_hour_utc(),
             "signals_sent_this_hour": 0,
